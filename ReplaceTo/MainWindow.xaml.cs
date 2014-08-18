@@ -33,11 +33,18 @@ namespace ReplaceTo
 
             if (string.IsNullOrEmpty(inputString) || string.IsNullOrEmpty(inputChar) || string.IsNullOrEmpty(outputChar))
             {
-                MessageBox.Show("Error, introduzca los textos");
+                txbOutputString.Text = "Please, insert some text.";
             }
             else
             {
-                txbOutputString.Text = inputString.Replace(inputChar, outputChar);
+                if (!inputString.IndexOf(inputChar).Equals(-1))
+                {
+                    txbOutputString.Text = inputString.Replace(inputChar, outputChar);
+                }
+                else
+                {
+                    txbOutputString.Text = "Input character not exist in input string.";
+                }
             }
         }
     }
